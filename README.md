@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kevbuh/lookup/main/logo_yellow_circle.png">
+  <img src="https://raw.githubusercontent.com/kevbuh/lookup/main/images/128starcircle.png">
 </p>
 
 --------------------------------------------------------------------
