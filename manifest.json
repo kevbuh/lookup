@@ -5,5 +5,8 @@
     "action": {
         "default_popup": "index.html"
     },
-    "permissions": ["scripting", "activeTab"]
+    "permissions": ["scripting", "activeTab"],
+    "icons": {
+        "128": "images/128starcircle.png"
+      }
 }
