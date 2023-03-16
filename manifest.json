@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "version": "1.0",
     "name": "LOOKUP: Highlighted Text AI Explanations",
-    "description": "Leveraging AI to help explain text.",
+    "description": "Our AI-powered Google Chrome extension makes researching a breeze! With just a click, you can get quick explanations and definitions of any highlighted text. Stay up-to-date and informed with our constantly evolving algorithm. Download our powerful LOOKUP assistant today and take your browsing to the next level!",
     "action": {
         "default_popup": "index.html"
     },
@@ -21,6 +21,6 @@
         }
     },
     "background": {
-        "service_worker": "index.js"
+        "service_worker": "background.js"
     }
 }

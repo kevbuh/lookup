@@ -1,23 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"> -->
+   <head>
+      <!-- <meta charset="UTF-8"> -->
+      <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+      <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"> -->
+   </head>
+   <body >
+      <h1 style="padding: 2rem; font-weight: bold; font-size: 2.5rem;">lookup</h1>
+      <!-- <hr> -->
+      <!-- <p style="font-weight: bold; font-size: 1.5rem">LOOKUP is active, but key features are missing!</p>
+      <p style="font-weight:400; font-size: 1.5rem">Sign up now to unlock the following:</p> -->
+      <!-- <ul>
+         <li>Personal dictionary</li>
+         <li>Get weekly writing statistics and tips</li>
+      </ul> -->
+      <button style="
+        padding-top: 2rem;
+         border-radius: 1rem;
+         padding: 0.5rem;
+         margin: auto;
+         font-weight: bold; 
+         font-size: 1rem; 
+         border: none;" 
+         id="save-btn">
+         Copy Text
+      </button>
 
-    </head>
-    <body>
-        <p style="font-weight: bold; font-size: 4rem;">LOOKUP</p>
-        <p style="font-weight: normal; font-size: 2rem;">LOOKUP for chrome</p>
-        <p>LOOKUP is active, but key features are missing</p>
-        <!-- <p>Sign up now to unlock the following:</p>
-        <p> Personal dictionary</p>
-        <p>  Save and access your documents</p>
-        <p>  Get weekly writing statistics and tips</p>
-        <p>   Sign up</p>
-        <p>   Already have an account? Sign in</p> -->
-        <button id="save-btn">SAVE HIGHLIGHT</button>
-        <script src="index.js"></script>
-    </body>
+      <p id="selected-text" style="padding: 1rem; background-color: #f4f4f5; border-radius: 0.5rem; font-weight: 500; font-size: 1rem; "></p>
+
+      <!-- <button style="border-radius: 1rem;
+         background: #ff7676;
+         padding: 1rem;
+         font-weight: bold; 
+         border: none;
+         color: #fff;" 
+         id="save-btn">
+         Go Premium to Enable Better Search
+      </button> -->
+
+      <button style="
+        padding-top: 2rem;
+         border-radius: 1rem;
+         background: #50e3c2;
+         padding: 0.5rem;
+         margin: auto;
+         font-weight: bold; 
+         font-size: 1rem; 
+         border: none;
+         color: #fff;" 
+         id="look-up-clicked">
+         LOOKUP!
+      </button>
+
+      <script src="index.js"></script>
+   </body>
 </html>
