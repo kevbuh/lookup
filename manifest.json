@@ -1,12 +1,20 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "LookUp Extension",
+    "name": "LOOKUP",
     "action": {
         "default_popup": "index.html"
     },
     "permissions": ["scripting", "activeTab"],
     "icons": {
         "128": "images/128starcircle.png"
+    },
+    "commands": {
+        "_execute_action": {
+          "suggested_key": {
+            "default": "Ctrl+B",
+            "mac": "Command+B"
+          }
+        }
       }
 }
