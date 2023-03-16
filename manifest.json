@@ -1,20 +1,26 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "LOOKUP",
+    "name": "LOOKUP: Highlighted Text AI Explanations",
+    "description": "Leveraging AI to help explain text.",
     "action": {
         "default_popup": "index.html"
     },
-    "permissions": ["scripting", "activeTab"],
+    "permissions": ["scripting", "activeTab", "contextMenus", "tabs"],
     "icons": {
         "128": "images/128starcircle.png"
     },
     "commands": {
+        "myContextMenuItem": {
+          "description": "Remote DevTools"
+        },
         "_execute_action": {
           "suggested_key": {
-            "default": "Ctrl+B",
-            "mac": "Command+B"
+            "default": "Ctrl+B"
           }
         }
-      }
+    },
+    "background": {
+        "service_worker": "index.js"
+    }
 }
