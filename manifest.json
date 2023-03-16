@@ -6,14 +6,30 @@
     "action": {
         "default_popup": "index.html"
     },
-    "permissions": ["scripting", "activeTab", "contextMenus", "tabs"],
+    "permissions": [
+      "scripting",
+      "activeTab",
+      "contextMenus",
+      "tabs",
+      "storage"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://*.openai.com/"
+        ],
+        "js": [
+          "content.js"
+        ]
+      }
+    ],
     "host_permissions": ["https://*.openai.com/"],
     "icons": {
         "128": "images/128starcircle.png"
     },
     "commands": {
         "myContextMenuItem": {
-          "description": "Remote DevTools"
+          "description": "AI KEVIN"
         },
         "_execute_action": {
           "suggested_key": {
