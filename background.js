@@ -18,6 +18,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   // });
   chrome.tabs.sendMessage(tab.id, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi");
 
+
   if (info.menuItemId === "contextMenuLookup") {
     const selectedText = info.selectionText;
     console.log("Selected text:", selectedText);

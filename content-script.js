@@ -30,9 +30,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     div_count += 1;
     var div = document.createElement(`myDiv_${div_count}`);
     var p = document.createElement("p");
-    p.textContent = "LOOKUP";
+    p.textContent = "LOOKUP: results for " + "'" + message.substring(0, 12) + "...'";
     p.style.fontSize = "1rem";
     p.style.fontWeight = "700";
+    p.style.color = "#777675";
 
     div.appendChild(p);
     var hr = document.createElement("hr");
@@ -46,13 +47,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Set the div's position to be at the range's start
     var rect = range.getBoundingClientRect();
     div.style.position = "absolute";
-    div.style.top = rect.top  + "px";
+    div.style.top = rect.top + 100 + "px";
     div.style.left = rect.left + "px";
     div.style.zIndex = 2147483642;
     div.style.padding = "1rem";
     div.style.backgroundColor = "#edebe9";
-    div.style.fontSize = "0.75rem";
-    div.style.borderRadius = "1rem";
+    div.style.fontSize = "0.8rem";
+    div.style.borderRadius = "1.5rem";
     div.style.width = "300px";
     div.style.boxShadow = "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)";
     div.style.border = "border-style: solid";
