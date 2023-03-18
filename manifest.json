@@ -11,16 +11,13 @@
       "activeTab",
       "contextMenus",
       "tabs",
-      "storage"
+      "storage",
+      "nativeMessaging"
     ],
     "content_scripts": [
       {
-        "matches": [
-          "https://*.openai.com/"
-        ],
-        "js": [
-          "content.js"
-        ]
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
       }
     ],
     "host_permissions": ["https://*.openai.com/"],
