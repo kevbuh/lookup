@@ -1,83 +1,64 @@
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     console.log('in add listener');
-//     console.log('request', request);
-
-//     if (request.data) {
-//       const element = document.getElementById("look-up-clicked");
-//       if (element) {
-//         element.textContent += request.api_res;
-//       }
-//     }
-//     sendResponse({farewell: "goodbye"});
-//     return true;
-//   });
-
-// chrome.runtime.onMessage.addListener(
-//     function(request, sender, sendResponse) {
-//       console.log(sender.tab ?
-//                   "from a content script:" + sender.tab.url :
-//                   "from the extension");
-//       if (request.greeting === "hello")
-//         sendResponse({farewell: "goodbye"});
-//     }
-//   );
-
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     console.log('heard message');
-//     // if (request.action === 'append-text') {
-//     // Perform the desired action with the received text
-//     // console.log('Received text:', request.text);
-//     // }
-// });
-
-// chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-//     console.log('in messager!');
-//     console.log(message);
-//     return true;
-// });
-
-// chrome.runtime.onMessage.addListener(function (response, sendResponse) {
-//     console.log(response);
-// });
+var div_count = 0;
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log("in message catcher!");
-    console.log(message);
-    
-    // var newElement = document.createElement("look-up-clicked");
-    // newElement.textContent += message;
+    console.log("recieved lookup call!");
+    // console.log(message);
 
     // // Append the new element to the body of the document
-    // document.body.appendChild(newElement);
     var selection = window.getSelection();
 
     // If there is no selection, do nothing
     if (selection.rangeCount === 0) {
-    return;
+        return;
     }
 
     // Get the first range of the selection
     var range = selection.getRangeAt(0);
 
-    // Create a new div element and set its content
-    var div = document.createElement("div");
+    // Delete if there is another popup
+    // Get the element by its ID
+    // var element = document.getElementById("myDiv");
+    // console.log(element)
 
-    div.innerHTML = message;
+    // // If the element exists, remove it
+    // if (element !== null) {
+    //     element.style.visibility = "hidden";
+    //     element.parentNode.removeChild(element);
+    // }
+
+    // Create a new div element and set its content
+    div_count += 1;
+    var div = document.createElement(`myDiv_${div_count}`);
+    var p = document.createElement("p");
+    p.textContent = "LOOKUP";
+    p.style.fontSize = "1rem";
+    p.style.fontWeight = "700";
+
+    div.appendChild(p);
+    var hr = document.createElement("hr");
+    div.appendChild(hr);
+    var br = document.createElement("br");
+    div.appendChild(br);
+    var p = document.createElement("p");
+    p.textContent = message;
+    div.appendChild(p);
 
     // Set the div's position to be at the range's start
     var rect = range.getBoundingClientRect();
-    div.style.position = "fixed";
-    div.style.top = rect.top + 10 + "px";
+    div.style.position = "absolute";
+    div.style.top = rect.top  + "px";
     div.style.left = rect.left + "px";
     div.style.zIndex = 2147483642;
     div.style.padding = "1rem";
-    div.style.backgroundColor = "#f1f1f1";
-    div.style.fontSize = "1rem";
-    div.style.color = "black";
+    div.style.backgroundColor = "#edebe9";
+    div.style.fontSize = "0.75rem";
     div.style.borderRadius = "1rem";
-    div.style.width = "200px";
+    div.style.width = "300px";
+    div.style.boxShadow = "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)";
+    div.style.border = "border-style: solid";
 
-
+    // add an id 
+    div.setAttribute("id", "lookup_extension");
 
     // Add the div to the document
     document.body.appendChild(div);
@@ -87,24 +68,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     });
 });
 
+// Get the div element by its ID
 
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     console.log("hurrrrr");
-//     // if (request.action === 'append-text') {
-//     // Perform the desired action, e.g., append the text to the DOM
-    // console.log("in message catcher!");
-    // const textElement = document.createElement("ttessttst");
-    // // textElement.textContent = request.text;
-    // textElement.textContent = "BOBBBBBB";
-    // document.body.appendChild(textElement);
+// Add a click event listener to the document
+document.addEventListener("click", function(event) {
+    var thisdiv = "";
+    thisdiv = document.getElementsByTagName(`myDiv_${div_count}`);
+    console.log(thisdiv[0]);
+    console.log(div_count);
 
-    // var newElement = document.createElement("p");
-    // newElement.textContent = "This is the new content appended to the end of the document!";
-    //     // Append the new element to the body of the document
-    // document.body.appendChild(newElement);
-   
-//     // Send a response back to the background script (optional)
-//     sendResponse({ success: true });
-//     // }
-//     return true;
-//    });
+
+    if (document.getElementsByTagName(`myDiv_${div_count}`)[0]){
+        // console.log(thisdiv[0].style.display)
+        // Check if the clicked element is inside the div
+        // if (!thisdiv.contains(event.target)) {
+            // If the clicked element is not inside the div, remove the div
+            document.getElementsByTagName(`myDiv_${div_count}`)[0].style.display = "none";
+        // thisdiv[0].parentNode.removeChild(thisdiv);
+        // }
+    }
+});
+
