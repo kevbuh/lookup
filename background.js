@@ -9,14 +9,14 @@ chrome.contextMenus.create({
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   console.log('clicked herrr');
-  // await generateAnswer(info.selectionText).then(async (res)=> {
-  //   console.log("GOT THIS-->",res);
-  //   // const selectedText = info.selectionText;
+  await generateAnswer(info.selectionText).then(async (res)=> {
+    console.log("GOT THIS-->",res);
+    // const selectedText = info.selectionText;
 
-  //   chrome.tabs.sendMessage(tab.id, res);
-  //   console.log("Sent message");
-  // });
-  chrome.tabs.sendMessage(tab.id, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi");
+    chrome.tabs.sendMessage(tab.id, tab.id+"_"+res);
+    console.log("Sent message");
+  });
+  // chrome.tabs.sendMessage(tab.id, tab.id+"_Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi");
 
 
   if (info.menuItemId === "contextMenuLookup") {

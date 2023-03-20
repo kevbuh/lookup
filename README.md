@@ -46,6 +46,11 @@ There's a lot of interest in LOOKUP lately. Here's some guidelines for contribut
 
 ### Todo
 
-- [ ] Fix where it is located on user screen
-- [ ] Actually delete div
 - [ ] Sponsor links
+- [ ] dark/lightmode
+- [x] Fix where it is located on user screen
+- [x] Actually delete div
+- [x] show user selection instead of message
+- [x] Specify font every time
+- [x] tab id when creating popup so replicant error doesn't happen 
+
