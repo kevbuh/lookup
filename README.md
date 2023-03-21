@@ -46,8 +46,35 @@ There's a lot of interest in LOOKUP lately. Here's some guidelines for contribut
 
 ### Todo
 
+- [ ] api res getting added twice?
+- [ ] double click shortcut
+- [ ] make keyboard shortcut for lookup
+- [ ] hardcode font and size and sizing
+- [ ] text streaming
+- [ ] create server with tokens
+- [ ] rate limits
+- [ ] accounts
+- [ ] subscriptions?
+  - [ ] access to longer context lengths
+  - [ ] longer explainations
+- [ ] loading result animation
+- [ ] highlight text that you are looking up
+- [ ] change explainer prompt
+- [ ] redo explanation button
+- [ ] disappear on scroll
+- [ ] change logo and color
+- [ ] error handling
+- [ ] change size of popup window
+- [ ] better triangle
+  - [ ] new shape
+  - [ ] glassy blur 
+- [ ] env variables
+- [ ] popup color theme
+  - [ ] dark/lightmode
 - [ ] Sponsor links
-- [ ] dark/lightmode
+  - [ ] wikipedia
+  - [ ] search with google
+- [x] triangle at bottom 
 - [x] Fix where it is located on user screen
 - [x] Actually delete div
 - [x] show user selection instead of message

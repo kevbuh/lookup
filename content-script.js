@@ -21,40 +21,50 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     var div = document.createElement(`myDiv_${tab_id}`);
 
     var p = document.createElement("p");
-    p.textContent = "LOOKUP results for " + "'" + gpt_res.substring(0, 12) + "...'";
-    p.style.fontSize = "16px";
-    p.style.fontFamily = "Arial";
-    p.style.paddingBottom = "10px";
-    // p.style.fontWeight = "600";
-    // p.style.color = "#777675";
-    p.style.color = "#f1f1f1";
-    p.style.fontWeight = "700";
+    p.textContent = gpt_res;
     div.appendChild(p);
 
     var p = document.createElement("p");
     p.textContent = gpt_res;
+    p.style.paddingBottom = "10px";
     div.appendChild(p);
 
     // Set the div's position to be at the range's start
     var rect = range.getBoundingClientRect();
+
+    // Create a new div element for the triangle and position it above the main div
+    var triangle = document.createElement("div");
+    triangle.style.position = "absolute";
+    triangle.style.top =  -15  + "px";
+    triangle.style.left = 4 + "px";
+    triangle.style.width = 0;
+    triangle.style.height = 0;
+    triangle.style.borderLeft = "15px solid transparent";
+    triangle.style.borderRight = "15px solid transparent";
+    triangle.style.borderBottom = "15px solid rgba(126,125,124)";
+    triangle.style.backdropFilter = "blur(5px)";
+    div.appendChild(triangle);
+
+
+    // main div
     div.style.position = "absolute";
     div.style.fontFamily = "Arial";
-    div.style.top = rect.top + 20 + window.pageYOffset + "px";
+    div.style.top = rect.top + 32 + window.pageYOffset + "px";
     div.style.left = rect.left + window.pageXOffset + "px";
     div.style.zIndex = 2147483642;
     div.style.paddingLeft = "20px";
     div.style.paddingRight = "20px";
-    div.style.paddingBottom = "20px";
+    div.style.paddingBottom = "10px";
     div.style.paddingTop = "10px";
-
+    
 
     // div.style.backgroundColor = "#edebe9";
     // div.style.backgroundColor = "#7d7c7b";
-    div.style.backgroundColor = "rgba(126,125,124,0.8)";
+    div.style.backgroundColor = "rgba(126,125,124,0.8)"; // blurred glassy grey
     div.style.backdropFilter = "blur(5px)";
     div.style.color = "#f1f1f1";
     div.style.fontSize = "14px";
-    div.style.borderRadius = "10px";
+    div.style.borderRadius = "5px";
     div.style.width = "300px";
     div.style.boxShadow = "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)";
     div.style.border = "border-style: solid";
@@ -62,12 +72,29 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // add an id 
     div.setAttribute("id", "lookup_extension");
 
+    var hr = document.createElement("hr");
+    div.appendChild(hr);
+
+    var p = document.createElement("p");
+    // p.textContent = "LOOKUP results for " + "'" + gpt_res.substring(0, 12) + "...'";
+    p.textContent = "LOOKUP";
+    p.style.fontFamily = "Arial";
+    p.style.fontSize = "10px";
+    p.style.paddingTop = "10px";
+    p.style.fontStyle = "italic";
+    // p.style.fontWeight = "600";
+    // p.style.backgroundColor = "#7d7c7b";
+    // p.style.borderRadius = "5px";
+    // p.style.color = "#777675";
+    // p.style.color = "#f1f1f1";
+    p.style.fontWeight = "700";
+    p.style.textAlign = "center"; // center the text horizontally
+    div.appendChild(p);
+
     // Add the div to the document
     document.body.appendChild(div);
 
-    div.addEventListener("scroll", function() {
-        div.style.display = "none";
-    });
+    
 });
 
 

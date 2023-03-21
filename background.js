@@ -9,15 +9,14 @@ chrome.contextMenus.create({
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   console.log('clicked herrr');
-  await generateAnswer(info.selectionText).then(async (res)=> {
-    console.log("GOT THIS-->",res);
-    // const selectedText = info.selectionText;
+  // await generateAnswer(info.selectionText).then(async (res)=> {
+  //   console.log("GOT THIS-->",res);
+  //   // const selectedText = info.selectionText;
 
-    chrome.tabs.sendMessage(tab.id, tab.id+"_"+res);
-    console.log("Sent message");
-  });
-  // chrome.tabs.sendMessage(tab.id, tab.id+"_Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi");
-
+  //   chrome.tabs.sendMessage(tab.id, tab.id+"_"+res);
+  //   console.log("Sent message");
+  // });
+  chrome.tabs.sendMessage(tab.id, tab.id+"_Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi");
 
   if (info.menuItemId === "contextMenuLookup") {
     const selectedText = info.selectionText;
@@ -29,7 +28,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 });
 
 async function generateAnswer(highlighted_text) {
-  console.log('clicked')
+  console.log('clicked');
   let result = '';
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -39,7 +38,7 @@ async function generateAnswer(highlighted_text) {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [{"role": "user", "content": `Explain in one sentence, ${highlighted_text}`}],
+      messages: [{"role": "user", "content": `Give more detail in two sentences. ${highlighted_text}`}],
       temperature: 0.7,
     })
   });
