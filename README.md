@@ -46,14 +46,24 @@ There's a lot of interest in LOOKUP lately. Here's some guidelines for contribut
 
 ### Todo
 
-- [ ] api res getting added twice?
+- [ ] disappear on scroll
+- [ ] row based layout with different sources in different rows
+  - [ ] svg logo 
+  - [ ] 'retrieved from ai' 
+  - [ ] info icon popup
 - [ ] double click shortcut
 - [ ] make keyboard shortcut for lookup
-- [ ] hardcode font and size and sizing
 - [ ] text streaming
-- [ ] create server with tokens
-- [ ] rate limits
-- [ ] accounts
+- [ ] backend server 
+  - [ ] with tokens
+  - [ ] rate limits
+  - [ ] accounts
+  - [ ] env variables
+- [ ] different searches
+  - [ ] search on google
+  - [ ] search on wikipedia
+  - [ ] search websters
+  - [ ] search on ai
 - [ ] subscriptions?
   - [ ] access to longer context lengths
   - [ ] longer explainations
@@ -61,19 +71,20 @@ There's a lot of interest in LOOKUP lately. Here's some guidelines for contribut
 - [ ] highlight text that you are looking up
 - [ ] change explainer prompt
 - [ ] redo explanation button
-- [ ] disappear on scroll
 - [ ] change logo and color
 - [ ] error handling
 - [ ] change size of popup window
 - [ ] better triangle
   - [ ] new shape
   - [ ] glassy blur 
-- [ ] env variables
 - [ ] popup color theme
   - [ ] dark/lightmode
 - [ ] Sponsor links
   - [ ] wikipedia
   - [ ] search with google
+- [ ] LRU cache for searches
+- [x] hardcode font and size and sizing
+- [x] api res getting added twice?
 - [x] triangle at bottom 
 - [x] Fix where it is located on user screen
 - [x] Actually delete div

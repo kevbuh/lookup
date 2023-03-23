@@ -18,18 +18,17 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   // });
   chrome.tabs.sendMessage(tab.id, tab.id+"_Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi");
 
-  if (info.menuItemId === "contextMenuLookup") {
-    const selectedText = info.selectionText;
-    console.log("Selected text:", selectedText);
+  // if (info.menuItemId === "contextMenuLookup") {
+  //   const selectedText = info.selectionText;
+  //   console.log("Selected text:", selectedText);
 
-    // Do something with the selected text, like open a new tab or display a popup
-    chrome.tabs.create({url: "https://en.wikipedia.org/wiki/LeBron_James"});
-  }
+  //   // Do something with the selected text, like open a new tab or display a popup
+  //   chrome.tabs.create({url: "https://en.wikipedia.org/wiki/LeBron_James"});
+  // }
 });
 
 async function generateAnswer(highlighted_text) {
   console.log('clicked');
-  let result = '';
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
