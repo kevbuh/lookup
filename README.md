@@ -14,30 +14,17 @@ Our AI-powered Google Chrome extension makes researching a breeze! With just a c
 * A powerful LOOKUP assistant Google Chrome extension 
 * Leveraging AI to explain highlighted text
 
-### Installation
+<p align="center" >
+  <img height="350px" src="https://raw.githubusercontent.com/kevbuh/lookup/main/images/mar2723_ss.png">
+</p>
 
-Here's a step-by-step guide on how to download our powerful LOOKUP assistant Google Chrome extension from the Google Chrome Web Store:
-
-1. Open your Google Chrome browser and navigate to the Chrome Web Store.
-
-2. In the search bar, type in "Powerful LOOKUP Assistant" and hit enter.
-
-3. Click on the extension from the search results that matches our description and click on the "Add to Chrome" button.
-
-4. A pop-up will appear asking you to confirm the installation. Click "Add extension" to begin the installation process.
-
-5. Wait a few seconds for the extension to download and install. You'll know it's done when you see a notification in the top right corner of your browser.
-
-6. Once the installation is complete, you'll see a new icon in the top right corner of your browser window.
-
-7. Click on the icon to open the LOOKUP assistant and start using it!
-
-That's it! You've successfully downloaded and installed our powerful LOOKUP assistant Google Chrome extension. Now you can enjoy quick and easy access to information on any highlighted text while browsing the web.
 
 ### Contributing
 
-There's a lot of interest in LOOKUP lately. Here's some guidelines for contributing:
+In order to contribute:
+* fork repo -> clone the forked repo -> edit -> pull request 
 
+Here's some guidelines for contributing:
 * Bugfixes are the best and always welcome!
 * If you don't understand the code you are changing, don't change it!
 * All code golf PRs will be closed, but conceptual cleanups are great.
