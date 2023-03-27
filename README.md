@@ -46,7 +46,7 @@ There's a lot of interest in LOOKUP lately. Here's some guidelines for contribut
 
 ### Todo
 
-- [ ] disappear on scroll
+- [ ] change shortcut to something other than cmd+b
 - [ ] row based layout with different sources in different rows
   - [ ] svg logo 
   - [ ] 'retrieved from ai' 
@@ -54,6 +54,8 @@ There's a lot of interest in LOOKUP lately. Here's some guidelines for contribut
 - [ ] double click shortcut
 - [ ] make keyboard shortcut for lookup
 - [ ] text streaming
+- [ ] responsive dynamic design
+- [ ] doesn't work on local files in chrome tabs
 - [ ] backend server 
   - [ ] with tokens
   - [ ] rate limits
@@ -83,6 +85,7 @@ There's a lot of interest in LOOKUP lately. Here's some guidelines for contribut
   - [ ] wikipedia
   - [ ] search with google
 - [ ] LRU cache for searches
+- [x] disappear on scroll
 - [x] hardcode font and size and sizing
 - [x] api res getting added twice?
 - [x] triangle at bottom 

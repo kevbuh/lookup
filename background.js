@@ -8,7 +8,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-  console.log('clicked herrr');
+  console.log('clicked herrr', tab, info);
   // await generateAnswer(info.selectionText).then(async (res)=> {
   //   console.log("GOT THIS-->",res);
   //   // const selectedText = info.selectionText;
@@ -28,7 +28,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 });
 
 async function generateAnswer(highlighted_text) {
-  console.log('clicked');
+  console.log('generating...');
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -37,11 +37,10 @@ async function generateAnswer(highlighted_text) {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [{"role": "user", "content": `Give more detail in two sentences. ${highlighted_text}`}],
-      temperature: 0.7,
+      messages: [{"role": "user", "content": `Explain in 2 sentences. ${highlighted_text}`}],
+      temperature: 0.8,
     })
   });
-  console.log('reading...');
   const data = await response.json();
   console.log('response:', data.choices[0].message.content);
   const api_response = data.choices[0].message.content;

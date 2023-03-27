@@ -20,14 +20,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         // Create a new span element to wrap the selected text
         var span = document.createElement('span');
         span.setAttribute("id", "extension_highlight");
-        // span.style.backgroundColor = 'yellow';
-        // span.style.textDecoration = 'underline';
-        // span.style.textDecorationColor = '#FF5F1F';
         span.style.borderBottom = '10px solid #50e3c2';
-
     
         // Surround the selected text with the new span element
-        // var range = selection.getRangeAt(0);
         range.surroundContents(span);
     
         // Collapse the selection to the end of the span element
@@ -37,10 +32,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Create a new div element and set its content
     div_count += 1;
     var div = document.createElement(`myDiv_${tab_id}`);
-
-    // var p = document.createElement("p");
-    // p.textContent = gpt_res;
-    // div.appendChild(p);
+    div.style.lineHeight = "13px";
 
     var p = document.createElement("p");
     p.textContent = gpt_res;
@@ -51,24 +43,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Set the div's position to be at the range's start
     var rect = range.getBoundingClientRect();
 
-    // Create a new div element for the triangle and position it above the main div
-    // var triangle = document.createElement("div");
-    // triangle.style.position = "absolute";
-    // triangle.style.top =  -15  + "px";
-    // triangle.style.left = 4 + "px";
-    // triangle.style.width = 0;
-    // triangle.style.height = 0;
-    // triangle.style.borderLeft = "15px solid transparent";
-    // triangle.style.borderRight = "15px solid transparent";
-    // triangle.style.borderBottom = "15px solid rgba(126,125,124)";
-    // triangle.style.backdropFilter = "blur(5px)";
-    // div.appendChild(triangle);
-
-
     // main div
     div.style.position = "absolute";
     div.style.fontFamily = "Arial";
-    // div.style.top = rect.top + 32 + window.pageYOffset + "px";
     div.style.top = rect.top + 21 + window.pageYOffset + "px";
     div.style.left = rect.left + window.pageXOffset + "px";
     div.style.zIndex = 2147483642;
@@ -77,8 +54,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     div.style.paddingBottom = "10px";
     div.style.paddingTop = "10px";
     
-    // div.style.backgroundColor = "#edebe9";
-    // div.style.backgroundColor = "#7d7c7b";
     div.style.backgroundColor = "rgba(110,109,108,0.81)"; // blurred glassy grey
     div.style.backdropFilter = "blur(5px)";
     div.style.color = "#f1f1f1";
@@ -105,13 +80,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     p.style.fontSize = "10px";
     p.style.paddingTop = "10px";
     p.style.fontStyle = "italic";
-    // p.style.fontWeight = "600";
-    // p.style.backgroundColor = "#7d7c7b";
-    // p.style.borderRadius = "5px";
-    // p.style.color = "#777675";
-    // p.style.color = "#f1f1f1";
     p.style.fontWeight = "700";
-    // p.style.textAlign = "center"; // center the text horizontally
     bottom.appendChild(p);
 
     var p = document.createElement("p");
@@ -127,10 +96,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Remove popup on any user click
 // TODO: Change to on window change or scroll
-document.addEventListener("click", function(event) {
+document.addEventListener("scroll", function(event) {
     document.querySelectorAll('[id^="extension_highlight"]').forEach(function(element) {
         element.style.borderBottom = "none";
-        // element.style.textDecorationColor = "none";
     });
     document.querySelectorAll('[id^="lookup_extension"]').forEach(function(element) {
         element.remove();
